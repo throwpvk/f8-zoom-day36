@@ -12,6 +12,9 @@
   overflow-y: auto;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   min-height: calc(100vh - 100px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Responsive */
