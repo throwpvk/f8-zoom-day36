@@ -1,5 +1,7 @@
 import { HashRouter, Routes, Route } from "react-router-dom";
 import DefaultLayout from "../../layouts/DefaultLayout";
+import AuthLayout from "../../layouts/AuthLayout";
+import AdminLayout from "../../layouts/AdminLayout";
 import Home from "../../pages/Home";
 import About from "../../pages/About";
 import Contact from "../../pages/Contact";
@@ -23,13 +25,21 @@ function AppRoutes() {
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
-          <Route path="dashboard" element={<Dashboard />} />
-          <Route path="login" element={<Login />} />
           <Route path="notFound" element={<NotFound />} />
           <Route path="postDetail" element={<PostDetail />} />
           <Route path="posts" element={<Posts />} />
           <Route path="privacy" element={<Privacy />} />
+        </Route>
+        {/* AuthLayout*/}
+        <Route path="/" element={<AuthLayout />}>
+          {/* Nested routes */}
+          <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
+        </Route>
+        {/* AdminLayout*/}
+        <Route path="/" element={<AdminLayout />}>
+          {/* Nested routes */}
+          <Route path="dashboard" element={<Dashboard />} />
           <Route path="settings" element={<Settings />} />
           <Route path="users" element={<Users />} />
         </Route>
