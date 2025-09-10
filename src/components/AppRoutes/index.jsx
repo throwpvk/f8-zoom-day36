@@ -25,7 +25,7 @@ function AppRoutes() {
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
-          <Route path="postDetail" element={<PostDetail />} />
+          <Route path="postdetail/:id" element={<PostDetail />} />
           <Route path="posts" element={<Posts />} />
           <Route path="privacy" element={<Privacy />} />
         </Route>

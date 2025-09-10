@@ -1,0 +1,48 @@
+.postContainer {
+  padding: 16px 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.postList {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  width: 600px;
+  font-size: 15px;
+}
+
+.postList li {
+  padding: 2px 0;
+}
+
+.paginationContainer {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 16px auto;
+  gap: 8px;
+}
+.paginationContainer li {
+  border: 1px solid #ccc;
+  padding: 4px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: #f0f0f0;
+  }
+}
+
+.paginationContainer li.active {
+  background-color: #d9a7c7;
+  color: white;
+  border: none;
+  font-weight: bold;
+}
+
+.paginationContainer li.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
