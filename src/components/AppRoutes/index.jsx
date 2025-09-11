@@ -14,10 +14,12 @@ import Privacy from "../../pages/Privacy";
 import Register from "../../pages/Register";
 import Settings from "../../pages/Settings";
 import Users from "../../pages/Users";
+import ScrollToTop from "../../components/ScrollToTop";
 
 function AppRoutes() {
   return (
     <HashRouter>
+      <ScrollToTop />
       <Routes>
         {/* DefaultLayout*/}
         <Route path="/" element={<DefaultLayout />}>

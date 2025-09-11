@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import style from "./Posts.module.scss";
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import Pagination from "./Pagination";
+import Pagination from "../../components/Pagination";
 
 const Posts = () => {
   const [page, setPage] = useState(1);

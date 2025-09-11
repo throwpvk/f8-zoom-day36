@@ -1,36 +1,70 @@
-import { HashRouter, Routes, Route, Link } from "react-router-dom";
-import Home from "../../pages/Home";
-import About from "../../pages/About";
-import Contact from "../../pages/Contact";
-import Dashboard from "../../pages/Dashboard";
-import Login from "../../pages/Login";
-import NotFound from "../../pages/NotFound";
-import PostDetail from "../../pages/PostDetail";
-import Posts from "../../pages/Posts";
-import Privacy from "../../pages/Privacy";
-import Register from "../../pages/Register";
-import Settings from "../../pages/Settings";
-import Users from "../../pages/Users";
+import React from "react";
+import style from "./Pagination.module.scss";
 
-function AppRoutes() {
+const Pagination = ({ page, totalPages, setPage, setSearchParams }) => {
   return (
-    <HashRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/notFound" element={<NotFound />} />
-        <Route path="/postDetail" element={<PostDetail />} />
-        <Route path="/posts" element={<Posts />} />
-        <Route path="/privacy" element={<Privacy />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/settings" element={<Settings />} />
-        <Route path="/users" element={<Users />} />
-      </Routes>
-    </HashRouter>
+    <ul className={style.paginationContainer}>
+      <li
+        onClick={() => {
+          setPage(1);
+          setSearchParams({ page: 1 });
+        }}
+        className={`${style.pagination} ${page === 1 ? style.disabled : ""}`}
+      >
+        First
+      </li>
+      <li
+        onClick={() => {
+          if (page > 1) {
+            setPage(page - 1);
+            setSearchParams({ page: page - 1 });
+          }
+        }}
+        className={`${style.pagination} ${page === 1 ? style.disabled : ""}`}
+      >
+        Prev
+      </li>
+      {totalPages > 1 &&
+        [...Array(totalPages)].map((_, index) => (
+          <li
+            key={index}
+            onClick={() => {
+              setPage(index + 1);
+              setSearchParams({ page: index + 1 });
+            }}
+            className={`${style.pagination} ${
+              page === index + 1 ? style.active : ""
+            }`}
+          >
+            {index + 1}
+          </li>
+        ))}
+      <li
+        onClick={() => {
+          if (page < totalPages) {
+            setPage(page + 1);
+            setSearchParams({ page: page + 1 });
+          }
+        }}
+        className={`${style.pagination} ${
+          page < totalPages ? "" : style.disabled
+        }`}
+      >
+        Next
+      </li>
+      <li
+        onClick={() => {
+          setPage(totalPages);
+          setSearchParams({ page: totalPages });
+        }}
+        className={`${style.pagination} ${
+          page < totalPages ? "" : style.disabled
+        }`}
+      >
+        Last
+      </li>
+    </ul>
   );
-}
+};
 
-export default AppRoutes;
+export default Pagination;
