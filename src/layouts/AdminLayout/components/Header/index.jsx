@@ -25,12 +25,6 @@ const Header = () => {
           About
         </NavLink>
         <NavLink
-          to="/contact"
-          className={({ isActive }) => (isActive ? style.active : "")}
-        >
-          Contact
-        </NavLink>
-        <NavLink
           to="/dashboard"
           className={({ isActive }) => (isActive ? style.active : "")}
         >
@@ -43,12 +37,6 @@ const Header = () => {
           Posts
         </NavLink>
         <NavLink
-          to="/privacy"
-          className={({ isActive }) => (isActive ? style.active : "")}
-        >
-          Privacy
-        </NavLink>
-        <NavLink
           to="/settings"
           className={({ isActive }) => (isActive ? style.active : "")}
         >
@@ -59,6 +47,18 @@ const Header = () => {
           className={({ isActive }) => (isActive ? style.active : "")}
         >
           Users
+        </NavLink>
+        <NavLink
+          to="/privacy"
+          className={({ isActive }) => (isActive ? style.active : "")}
+        >
+          Privacy
+        </NavLink>
+        <NavLink
+          to="/contact"
+          className={({ isActive }) => (isActive ? style.active : "")}
+        >
+          Contact
         </NavLink>
       </nav>
 
